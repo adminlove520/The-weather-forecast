@@ -73,9 +73,10 @@ function login_mouseenter(node) {
     }  
   } else {
       node.onclick = (e) => {
-      let url1 = "https://free-api.heweather.com/s6/weather/now?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
-      let url2 = "https://free-api.heweather.com/s6/weather/hourly?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
-      let url3 = "https://free-api.heweather.com/s6/weather/forecast?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
+      let target = e.target === node ? node : e.target.parentNode
+      let url1 = "https://free-api.heweather.com/s6/weather/now?location=" + target.cid + "&key=42a2e74944864db5aec770a991481f7b"
+      let url2 = "https://free-api.heweather.com/s6/weather/hourly?location=" + target.cid + "&key=42a2e74944864db5aec770a991481f7b"
+      let url3 = "https://free-api.heweather.com/s6/weather/forecast?location=" + target.cid + "&key=42a2e74944864db5aec770a991481f7b"
       get(url1,Weather_now,"weather")
       get(url2,hours_Weather,"hours_Weather")
       get(url3,Future_Weather,"Future_Weather")
