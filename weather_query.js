@@ -4,7 +4,7 @@ let Weather_box_Node = document.body.querySelector(".Weather_box")
 let Weather_now_Node = Weather_box_Node.querySelector(".Weather_now")
 let hours_Weather_Node = Weather_box_Node.querySelector(".hours_Weather")
 let Future_Weather_Node = Weather_box_Node.querySelector(".Future_Weather")
-
+let ispc = true
 
 function get(url, callback, str) {
   let xhr = new XMLHttpRequest()
@@ -62,13 +62,24 @@ function add_searchNode(data) {
 }
 
 function login_mouseenter(node) {
-  node.onmouseenter = (e) => {
+  if (ispc) {
+    node.onmouseenter = (e) => {
+        let url1 = "https://free-api.heweather.com/s6/weather/now?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
+        let url2 = "https://free-api.heweather.com/s6/weather/hourly?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
+        let url3 = "https://free-api.heweather.com/s6/weather/forecast?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
+        get(url1,Weather_now,"weather")
+        get(url2,hours_Weather,"hours_Weather")
+        get(url3,Future_Weather,"Future_Weather")
+    }  
+  } else {
+      node.onclick = (e) => {
       let url1 = "https://free-api.heweather.com/s6/weather/now?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
       let url2 = "https://free-api.heweather.com/s6/weather/hourly?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
       let url3 = "https://free-api.heweather.com/s6/weather/forecast?location=" + e.target.cid + "&key=42a2e74944864db5aec770a991481f7b"
       get(url1,Weather_now,"weather")
       get(url2,hours_Weather,"hours_Weather")
       get(url3,Future_Weather,"Future_Weather")
+    } 
   }
 }
 
@@ -100,4 +111,25 @@ function Future_Weather(data) {
 
  }
  Weather_box_Node.style.display = "block"
+}
+
+document.addEventListener('DOMContentLoaded',() => Ispc())
+
+function Ispc(){  
+   let userAgentInfo = navigator.userAgent;
+   let Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+   for (let v = 0; v < Agents.length; v++) {  
+       if (userAgentInfo.indexOf(Agents[v]) > 0) { 
+        Weather_box_Node.style.bottom = "30%"
+        Weather_box_Node.style.right = 0
+        Weather_box_Node.style.left = 0
+        Weather_box_Node.style.margin = "auto"
+        input_partentNode.style.top = "10%"
+        ispc = false
+        return
+      }  
+   }
+   Weather_box_Node.style.right = 0
+   Weather_box_Node.style.top = 0
+   Weather_box_Node.style.bottom = 0
 }

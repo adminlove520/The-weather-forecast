@@ -64,9 +64,6 @@ html, body {
   width: 500px;
   height: 650px;
   position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
   margin: auto 10px auto 0; }
   .Weather_box div {
     text-align: center; }
