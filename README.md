@@ -1,5 +1,5 @@
 # 一个简单的天气预报DOME
-[效果展示]()
+[效果展示](https://htmlpreview.github.io/?https://github.com/L-WJ1995/The-weather-forecast/blob/master/index.html)
 * 感谢`和风天气`提供API接口!
 * 使用功能已实现,但是许多细节问题还没有完善,后续更新时会陆续添加...  
   
