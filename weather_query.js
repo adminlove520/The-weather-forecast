@@ -120,11 +120,11 @@ function Ispc(){
    let Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
    for (let v = 0; v < Agents.length; v++) {  
        if (userAgentInfo.indexOf(Agents[v]) > 0) { 
-        Weather_box_Node.style.bottom = "30%"
+        Weather_box_Node.style.bottom = "10%"
         Weather_box_Node.style.right = 0
         Weather_box_Node.style.left = 0
         Weather_box_Node.style.margin = "auto"
-        input_partentNode.style.top = "10%"
+        input_partentNode.style.top = "5%"
         ispc = false
         return
       }  
