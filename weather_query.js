@@ -95,7 +95,9 @@ function Future_Weather(data) {
   node.querySelector("img").src = `./weather_icon/${data["daily_forecast"][i]["cond_code_d"]}.png`
   node.querySelector("div span:nth-of-type(1)").innerHTML = data["daily_forecast"][i].date
   node.querySelector("div span:nth-of-type(2)").innerHTML = "天气：" + data["daily_forecast"][i].cond_txt_d
-  node.querySelector("div span:nth-of-type(3)").innerHTML = "温度：" + data["daily_forecast"][i].tmp_max + "℃"
+  node.querySelector("div span:nth-of-type(3)").innerHTML = "白天气温：" + data["daily_forecast"][i].tmp_max + "℃"
+  node.querySelector("div span:nth-of-type(4)").innerHTML = "夜间气温：" + data["daily_forecast"][i].tmp_min + "℃"
+
  }
  Weather_box_Node.style.display = "block"
 }
