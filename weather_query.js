@@ -125,7 +125,7 @@ function Ispc(){
         Weather_box_Node.style.left = 0
         Weather_box_Node.style.margin = "auto"
         input_partentNode.style.top = "5%"
-        Weather_box_Node.querySelector("button").style.display = "none"
+        input_partentNode.querySelector("button").style.display = "none"
         ispc = false
         return
       }  
